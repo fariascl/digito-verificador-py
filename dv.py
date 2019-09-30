@@ -1,14 +1,11 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 def main():
     print("Calcular dígito vertificador RUT")
-    rut = raw_input("Ingrese RUT sin dígito verificador: ")
+    rut = input("Ingrese RUT sin dígito verificador: ")
     res = dv(rut)
     if res == 10:
         res = 'K'
-    print("El dígito verificador es: "+ str(res))
-    print("El RUT completo es: " + str(rut) + "-"+ str(res))
+    print("El dígito verificador es: " + str(res))
+    print("El RUT completo es: " + str(rut) + "-" + str(res))
 
 def dv(rut):
     j = 2
@@ -18,7 +15,7 @@ def dv(rut):
         if j == 8:
             j = 2
         sum = sum + (int(rut[i])*j)
-        j=j+1
+        j += 1
     mod = sum/11
     mod = int(mod)*11
     dvf = 11-(sum-mod)
